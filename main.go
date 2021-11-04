@@ -1,3 +1,6 @@
+/*
+CLI executable for the gostatic static page generator.
+*/
 package main
 
 import (
@@ -7,6 +10,7 @@ import (
 	"github.com/thomux/gostatic/gostatic"
 )
 
+// main is the CLI executable and parses the command line options.
 func main() {
 	var dir string
 	var err error
