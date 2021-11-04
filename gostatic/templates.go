@@ -7,6 +7,7 @@ import (
 	"path/filepath"
 )
 
+// parseSnippets loads all template snippets.
 func parseSnippets(path string) *template.Template {
 	snippets, err := template.ParseGlob(path)
 	if err != nil {
@@ -15,6 +16,7 @@ func parseSnippets(path string) *template.Template {
 	return snippets
 }
 
+// parseTemplates load all templates.
 func (gs *Gostatic) parseTemplates() {
 	templatesPath := filepath.Join(gs.root, gs.config.TemplatePath)
 	snippetsPath := filepath.Join(gs.root, gs.config.SnippetsPath, "*")

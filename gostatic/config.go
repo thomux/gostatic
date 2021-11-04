@@ -10,6 +10,12 @@ type GostaticConfig struct {
 	StructurePath string
 	// Output the the base folder for the generated pages.
 	Output string
+	// PagesPath is the path to the page data.
+	PagesPath string
+	// ArticlesPath is the path to the article data.
+	ArticlesPath string
+	// ProjectsPath is the path to the project data.
+	ProjectsPath string
 }
 
 // DefaultConfig creates a new GostaticConfig initialized with
@@ -20,5 +26,8 @@ func DefaultConfig() GostaticConfig {
 		TemplatePath:  "_templates",
 		StructurePath: "_structure",
 		Output:        "",
+		PagesPath:     "_pages",
+		ArticlesPath:  "_articles",
+		ProjectsPath:  "_projects",
 	}
 }

@@ -26,6 +26,5 @@ func main() {
 
 	gs := gostatic.New(dir, gostatic.DefaultConfig())
 
-	gs.Render("index.tmpl", "index.html", "Home")
-	gs.Render("page.tmpl", "pages/page.html", "Server")
+	gs.RenderAll()
 }

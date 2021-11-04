@@ -29,4 +29,6 @@ func TestNew(t *testing.T) {
 		log.Println("TEST: structure is nil")
 		t.Fail()
 	}
+
+	// TODO: extend test!
 }

@@ -8,15 +8,24 @@ import (
 	"strings"
 )
 
+// Menu describes one menu entry.
 type Menu struct {
+	// Separator is true if a menu separator instead of the entry
+	// should be rendered.
 	Separator bool
-	Dropdown  bool
-	Current   bool
-	Name      string
-	Url       string
-	Childs    []Menu
+	// Dropdown is true if a submenu should be rendered.
+	Dropdown bool
+	// Current is true if this is the current meny entry.
+	Current bool
+	// Name is the displayed text of the menu entry.
+	Name string
+	// Url is the URL of this menu entry.
+	Url string
+	// Childs is a list of all submenu entries.
+	Childs []Menu
 }
 
+// newMenu creates a new Menu, initialized with default values.
 func newMenu() Menu {
 	return Menu{
 		Separator: false,
@@ -28,6 +37,7 @@ func newMenu() Menu {
 	}
 }
 
+// readStructure reads all menu structure files.
 func (gs *Gostatic) readStructure() {
 	structurePath := filepath.Join(gs.root, gs.config.StructurePath)
 
@@ -50,6 +60,7 @@ func (gs *Gostatic) readStructure() {
 	}
 }
 
+// parseStructure creates the Menu list described in the structure file.
 func parseStructure(path string) []Menu {
 	log.Println("Parsing", path)
 
@@ -62,6 +73,10 @@ func parseStructure(path string) []Menu {
 
 	result := make([]Menu, 0)
 	for _, line := range lines {
+		if len(line) > 0 && line[0] == '#' {
+			log.Println("Skipping comment", line)
+			continue
+		}
 		if len(result) > 0 && len(line) > 0 && line[0] == ' ' {
 			last := result[len(result)-1]
 
@@ -79,6 +94,7 @@ func parseStructure(path string) []Menu {
 	return result
 }
 
+// parseMenu creates the Menu described by one line of the structure file.
 func parseMenu(line string) Menu {
 	m := newMenu()
 	parts := strings.Split(line, " -- ")
