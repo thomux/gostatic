@@ -20,15 +20,38 @@ func TestNew(t *testing.T) {
 		t.Fail()
 	}
 
-	if gs.templates == nil {
-		log.Println("TEST: templates is nil")
+	if len(gs.templates) != 10 {
+		log.Println("TEST: templates missing")
 		t.Fail()
 	}
 
-	if gs.structure == nil {
-		log.Println("TEST: structure is nil")
+	if len(gs.structure) != 2 {
+		log.Println("TEST: structure missing")
 		t.Fail()
 	}
 
-	// TODO: extend test!
+	if len(gs.pages) != 1 {
+		log.Println("TEST: page missing")
+		t.Fail()
+	}
+
+	if len(gs.articles) != 4 {
+		log.Println("TEST: articles missing")
+		t.Fail()
+	}
+
+	if len(gs.projects) != 1 {
+		log.Println("TEST: projects missing")
+		t.Fail()
+	}
+
+	if len(gs.tags) != 6 {
+		log.Println("TEST: tags missing")
+		t.Fail()
+	}
+
+	if len(gs.categories) != 3 {
+		log.Println("TEST: categories missing")
+		t.Fail()
+	}
 }
