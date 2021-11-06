@@ -1,5 +1,5 @@
-test_data
-test_data/**/*
+test_data*
+test_data*/**/*
 
 # Created by https://www.toptal.com/developers/gitignore/api/go,visualstudiocode,linux,windows,macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=go,visualstudiocode,linux,windows,macos

@@ -76,7 +76,7 @@ func (gs *Gostatic) RenderArticles() {
 		gs.Render("category.tmpl", output, "", meta)
 	}
 
-	for tag, articles := range gs.articlesByTags() {
+	for tag, articles := range gs.articlesByTag() {
 		log.Println("Render tag page", tag)
 		output := tagPath(tag)
 		meta := make(map[string]interface{})
@@ -157,8 +157,8 @@ func (gs *Gostatic) articlesByCategory() map[string][]Markdown {
 	return categories
 }
 
-// articlesByTags provides a map with all articles grouped by tag.
-func (gs *Gostatic) articlesByTags() map[string][]Markdown {
+// articlesByTag provides a map with all articles grouped by tag.
+func (gs *Gostatic) articlesByTag() map[string][]Markdown {
 	tags := make(map[string][]Markdown)
 	for _, v := range gs.articles {
 		for _, w := range v.Meta["tags"].([]string) {
