@@ -116,7 +116,7 @@ func (gs *Gostatic) articleUrls() []Link {
 // categoryUrls generates a link list with all category list pages.
 func (gs *Gostatic) categoryUrls() []Link {
 	links := make([]Link, 0)
-	for category, _ := range gs.articlesByCategory() {
+	for category := range gs.articlesByCategory() {
 		links = append(links, Link{
 			Name: category,
 			Url:  "/" + categoryPath(category),
@@ -128,7 +128,7 @@ func (gs *Gostatic) categoryUrls() []Link {
 // tagUrls generates a link list with all tag list pages.
 func (gs *Gostatic) tagUrls() []Link {
 	links := make([]Link, 0)
-	for tag, _ := range gs.articlesByTag() {
+	for tag := range gs.articlesByTag() {
 		links = append(links, Link{
 			Name: tag,
 			Url:  "/" + tagPath(tag),

@@ -9,7 +9,6 @@ import (
 
 func TestParseArticles(t *testing.T) {
 	gs := New("../test_data/", DefaultConfig())
-	gs.parseArticles()
 
 	if len(gs.articles) != 4 {
 		log.Println("TEST: not 4 articles")
