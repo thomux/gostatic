@@ -1,4 +1,18 @@
 
+gs
+
+test_data/*.html
+test_data/article
+test_data/article/*
+test_data/category
+test_data/category/*
+test_data/page
+test_data/page/*
+test_data/project
+test_data/project/*
+test_data/tag
+test_data/tag/*
+
 # Created by https://www.toptal.com/developers/gitignore/api/go,visualstudiocode,linux,windows,macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=go,visualstudiocode,linux,windows,macos
 
