@@ -1,0 +1,35 @@
+{{template "base" .}}
+
+{{define "title"}}{{.Title}}{{end}}
+
+{{define "main"}}
+    <div class="block">
+        <span class="tag is-dark">
+            <time datetime="2016-1-1">{{index .Meta "date"}}</time>
+        </span>
+
+        <span class="tag is-primary">
+            {{index .Meta "category"}}
+        </span>
+        
+        {{range index .Meta "tags"}}
+            <span class="tag is-info">
+                {{.}}
+            </span>
+        {{end}}
+    </div>
+
+    <div class="block">
+        <h1 class="title">
+            {{.Title}}
+        </h1>
+    </div>
+
+    <div class="block">
+        <span class="has-text-info">
+            {{index .Meta "summary"}}
+        </span>
+
+        {{ .Content }}
+    </div>
+{{end}}

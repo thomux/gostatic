@@ -1,0 +1,13 @@
+{{template "base" .}}
+
+{{define "title"}}{{.Title}}{{end}}
+
+{{define "main"}}
+    <div class="block">
+        <h1 class="title">
+            {{.Title}}
+        </h1>
+    </div>
+
+    {{template "articles" .}}
+{{end}}

@@ -1,0 +1,16 @@
+{{define "menu"}}
+    <aside class="menu">
+        {{range index .Structure "side"}}
+            <p class="menu-label">
+                {{.Name}}
+            </p>
+            {{if .Dropdown}}
+                <ul class="menu-list">
+                {{range .Childs}}
+                    <li><a class="{{if .Current}}is-active{{end}}" href="{{.Url}}">{{.Name}}</a></li>
+                {{end}}
+                </ul>
+            {{end}}
+        {{end}}
+    </aside>
+{{end}}

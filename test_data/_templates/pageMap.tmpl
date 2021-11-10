@@ -1,0 +1,76 @@
+{{template "base" .}}
+
+{{define "title"}}Page Map{{end}}
+
+{{define "main"}}
+    <div class="block">
+        <h1 class="title">
+            Page Map
+        </h1>
+    </div>
+
+    <div class="block">
+        <p class="subtitle">
+            Pages
+        </p>
+        {{range index .Meta "pages"}}
+            <ul>
+                <li>
+                    <a href="{{ .Url }}">{{ .Name }}</a>
+                </li>
+            </ul>
+        {{end}}
+    </div>
+
+    <div class="block">
+        <p class="subtitle">
+            Projects
+        </p>
+        {{range index .Meta "projects"}}
+            <ul>
+                <li>
+                    <a href="{{ .Url }}">{{ .Name }}</a>
+                </li>
+            </ul>
+        {{end}}
+    </div>
+
+    <div class="block">
+        <p class="subtitle">
+            Articles
+        </p>
+        {{range index .Meta "articles"}}
+            <ul>
+                <li>
+                    <a href="{{ .Url }}">{{ .Name }}</a>
+                </li>
+            </ul>
+        {{end}}
+    </div>
+
+    <div class="block">
+        <p class="subtitle">
+            Categories
+        </p>
+        {{range index .Meta "categories"}}
+            <ul>
+                <li>
+                    <a href="{{ .Url }}">{{ .Name }}</a>
+                </li>
+            </ul>
+        {{end}}
+    </div>
+
+    <div class="block">
+        <p class="subtitle">
+            Tags
+        </p>
+        {{range index .Meta "tags"}}
+            <ul>
+                <li>
+                    <a href="{{ .Url }}">{{ .Name }}</a>
+                </li>
+            </ul>
+        {{end}}
+    </div>
+{{end}}

@@ -64,10 +64,10 @@ func TestParseStructure(t *testing.T) {
 	if menu[0].Url != "https://github.com/thomux" {
 		t.Fail()
 	}
-	if len(menu[1].Childs) != 4 {
+	if len(menu[1].Childs) != 3 {
 		t.Fail()
 	}
-	if menu[3].Childs[2].Separator != true {
+	if menu[3].Childs[1].Separator != true {
 		t.Fail()
 	}
 }

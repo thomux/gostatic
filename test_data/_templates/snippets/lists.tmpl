@@ -1,0 +1,27 @@
+{{define "lists"}}
+    <div class="block">
+        <p class="subtitle">
+            Categories
+        </p>
+        {{range .Categories }}
+            <a href="{{ .Url }}">
+                <span class="tag is-primary">
+                    {{ .Name }}
+                </span>
+            </a>
+        {{end}}
+    </div>
+    
+    <div class="block">
+        <p class="subtitle">
+            Tags
+        </p>
+        {{range .Tags }}
+            <a href="{{ .Url }}">
+                <span class="tag is-info">
+                    {{ .Name }}
+                </span>
+            </a>
+        {{end}}
+    </div>
+{{end}}

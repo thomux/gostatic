@@ -1,0 +1,30 @@
+{{template "base" .}}
+
+{{define "title"}}{{.Title}}{{end}}
+
+{{define "main"}}
+    <div class="block">
+        <span class="tag is-primary">
+            <a href="{{index .Meta "github"}}">GitHub</a>
+        </span>
+        {{range index .Meta "tags"}}
+            <span class="tag is-info">
+                {{.}}
+            </span>
+        {{end}}
+    </div>
+    <div class="block">
+        <h1 class="title">
+            {{.Title}}
+        </h1>
+    </div>
+    <div class="block">
+        <p class="subtitle">
+            {{index .Meta "subtitle"}}
+        </p>
+    </div>
+
+    <div class="block">
+        {{ .Content }}
+    </div>
+{{end}}

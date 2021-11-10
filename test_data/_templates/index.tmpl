@@ -1,0 +1,17 @@
+{{template "base" .}}
+
+{{define "title"}}Home{{end}}
+
+{{define "main"}}
+    <div class="block">
+        <h1 class="title">
+            Hello World!
+        </h1>
+        <p class="subtitle">
+            This is my personal blog, a place where I document what
+            I learned and what I have built.
+        </p>
+    </div>
+
+    {{template "articles" .}}
+{{end}}

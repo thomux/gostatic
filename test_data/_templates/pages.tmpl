@@ -1,0 +1,21 @@
+{{template "base" .}}
+
+{{define "title"}}Pages{{end}}
+
+{{define "main"}}
+    <div class="block">
+        <h1 class="title">
+            Pages
+        </h1>
+    </div>
+
+    <div class="block">
+        {{range index .Meta "pages"}}
+            <ul>
+                <li>
+                    <a href="{{ .Url }}">{{ .Name }}</a>
+                </li>
+            </ul>
+        {{end}}
+    </div>
+{{end}}

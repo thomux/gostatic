@@ -1,0 +1,32 @@
+{{define "base"}}
+<!doctype html>
+<html lang='en'>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/svg+xml" href="images\thomux.svg">
+        <title>{{template "title" .}} - gostatic</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    </head>
+    <body>
+        <!-- header -->
+        {{template "header" .}}
+
+        <section class="section">
+            <div class="columns">
+                <div class="column is-3 is-hidden-mobile">
+                    {{template "menu" .}}
+                </div>
+                <div class="column is-6">
+                    {{template "main" .}}
+                </div>
+                <div class="column is-3 is-hidden-mobile">
+                    {{template "lists" .}}
+                </div>
+            </div>
+        </section>
+
+        {{template "footer" .}}
+    </body>
+</html>
+{{end}}

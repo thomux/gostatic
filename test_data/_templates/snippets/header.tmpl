@@ -1,0 +1,48 @@
+{{define "header"}}
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="/">
+                    <span style="font-weight: bolder;">gostatic</span>
+                </a>
+
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-start">
+                    {{range index .Structure "top"}}
+                        {{if .Dropdown}}
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link {{if .Current}}is-active{{end}}" href="{{.Url}}">
+                                    {{.Name}}
+                                </a>
+
+                                <div class="navbar-dropdown">
+                                    {{range .Childs}}
+                                        {{if .Separator}}
+                                            <hr class="navbar-divider">
+                                        {{else}}
+                                            <a class="navbar-item {{if .Current}}is-active{{end}}" href="{{.Url}}">
+                                                {{.Name}}
+                                            </a>
+                                        {{end}}
+                                    {{end}}
+                                </div>
+                            </div>
+                        {{else}}
+                            <a class="navbar-item {{if .Current}}is-active{{end}}" href="{{.Url}}">
+                                {{.Name}}
+                            </a>
+                        {{end}}
+                    {{end}}
+                </div>
+
+                <div class="navbar-end">
+                </div>
+            </div>
+        </nav>
+{{end}}
