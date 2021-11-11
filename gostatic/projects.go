@@ -30,6 +30,8 @@ func (gs *Gostatic) parseProjects() {
 		tags := strings.Split(project.Meta["tags"].(string), " ")
 		project.Meta["tags"] = tags
 
+		project.Meta["url"] = "/" + projectPath(project.Meta["file"].(string))
+
 		gs.projects[entry.Name()] = project
 
 		log.Println("Project:", entry.Name())
@@ -48,4 +50,20 @@ func (gs *Gostatic) RenderProjects() {
 // projectPath returns the path to the rendered project file.
 func projectPath(file string) string {
 	return filepath.Join("project", file+".html")
+}
+
+// articlesByTag provides a map with all articles grouped by tag.
+func (gs *Gostatic) projectsByTag() map[string][]Markdown {
+	tags := make(map[string][]Markdown)
+	for _, v := range gs.projects {
+		for _, w := range v.Meta["tags"].([]string) {
+			list, ok := tags[w]
+			if !ok {
+				list = make([]Markdown, 0)
+			}
+			list = append(list, v)
+			tags[w] = list
+		}
+	}
+	return tags
 }

@@ -128,11 +128,20 @@ func (gs *Gostatic) categoryUrls() []Link {
 // tagUrls generates a link list with all tag list pages.
 func (gs *Gostatic) tagUrls() []Link {
 	links := make([]Link, 0)
-	for tag := range gs.articlesByTag() {
+	articlesByTag := gs.articlesByTag()
+	for tag := range articlesByTag {
 		links = append(links, Link{
 			Name: tag,
 			Url:  "/" + tagPath(tag),
 		})
+	}
+	for tag := range gs.projectsByTag() {
+		if _, ok := articlesByTag[tag]; !ok {
+			links = append(links, Link{
+				Name: tag,
+				Url:  "/" + tagPath(tag),
+			})
+		}
 	}
 	return links
 }

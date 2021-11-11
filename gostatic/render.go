@@ -120,4 +120,6 @@ func (gs *Gostatic) RenderAll() {
 	gs.RenderProjects()
 	log.Println("Render special pages ...")
 	gs.RenderSpecial()
+	log.Println("Render tag pages ...")
+	gs.RenderTagPages()
 }

@@ -48,15 +48,14 @@ func (gs *Gostatic) parseArticles() {
 		}
 		article.Meta["time"] = t
 
-		gs.articles[entry.Name()] = article
-
 		article.Meta["url"] = "/" + articlePath(article.Meta["file"].(string))
+
+		gs.articles[entry.Name()] = article
 
 		log.Println("Article:", entry.Name())
 	}
 
 	gs.categories = gs.categoryUrls()
-	gs.tags = gs.tagUrls()
 }
 
 // RenderArticles renders all articles.
@@ -72,15 +71,6 @@ func (gs *Gostatic) RenderArticles() {
 		output := categoryPath(category)
 		meta := make(map[string]interface{})
 		meta["title"] = category
-		meta["articles"] = articles
-		gs.Render("category.tmpl", output, "", meta)
-	}
-
-	for tag, articles := range gs.articlesByTag() {
-		log.Println("Render tag page", tag)
-		output := tagPath(tag)
-		meta := make(map[string]interface{})
-		meta["title"] = tag
 		meta["articles"] = articles
 		gs.Render("category.tmpl", output, "", meta)
 	}

@@ -9,5 +9,37 @@
         </h1>
     </div>
 
+    <div class="block">
+        <h2 class="title">
+            Articles
+        </h2>
+    </div>
+
     {{template "articles" .}}
+
+    <div class="block">
+        <h2 class="title">
+            Projects
+        </h2>
+    </div>
+
+    {{range index .Meta "projects"}}
+        <div class="block">
+            <div class="card">
+                <header class="card-header">
+                    <p class="card-header-title">
+                        <a href="{{ index .Meta "url"}}">{{ index .Meta "title"}}</a>
+                    </p>
+                </header>
+                <footer class="card-footer">
+                    {{range index .Meta "tags"}}
+                        <span class="tag is-info card-footer-item">
+                            {{.}}
+                        </span>
+                    {{end}}
+                </footer>
+            </div>
+        </div>
+    {{end}}
+
 {{end}}

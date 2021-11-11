@@ -45,8 +45,9 @@ func New(root string, config GostaticConfig) *Gostatic {
 	gs.parseTemplates()
 	gs.readStructure()
 	gs.parsePages()
-	gs.parseArticles()
 	gs.parseProjects()
+	gs.parseArticles()
+	gs.parseTags()
 
 	return gs
 }

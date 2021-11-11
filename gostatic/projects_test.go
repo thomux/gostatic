@@ -44,3 +44,24 @@ func TestProjectPath(t *testing.T) {
 		t.Fail()
 	}
 }
+
+func TestProjectsByTag(t *testing.T) {
+	gs := New("../test_data/", DefaultConfig())
+	gs.parseProjects()
+
+	for tag, projects := range gs.projectsByTag() {
+		for _, project := range projects {
+			found := false
+			for _, t := range project.Meta["tags"].([]string) {
+				if t == tag {
+					found = true
+					break
+				}
+			}
+			if !found {
+				log.Println("TEST: tag not found", tag, project)
+				t.Fail()
+			}
+		}
+	}
+}
